@@ -1,4 +1,4 @@
-package grts.main;
+package grts.Main;
 
 public class Main {
 
