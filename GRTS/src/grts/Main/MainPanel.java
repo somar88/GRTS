@@ -38,7 +38,6 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setFocusable(true);
 		requestFocus();
-		System.out.println("Hi");
 
 	}
 
