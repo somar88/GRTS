@@ -38,7 +38,6 @@ public class Background {
 	}
 
 	public void update() {
-		System.out.println("hello");
 		x = (x + dx) % MainPanel.WIDTH;
 		y = (y + dy) % MainPanel.HIGHT;
 	}

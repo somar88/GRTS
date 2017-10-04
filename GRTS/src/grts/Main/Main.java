@@ -10,7 +10,7 @@ public class Main {
 		JFrame window = new JFrame("Main Window!");
 		MainPanel MP = new MainPanel();
 		window.setLocationRelativeTo(null);
-		window.setPreferredSize(new Dimension(MP.WIDTH * MP.SCALE, MP.WIDTH * MP.SCALE));
+		window.setPreferredSize(new Dimension(MP.WIDTH * MP.SCALE, MP.HIGHT * MP.SCALE));
 		window.setContentPane(MP);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
