@@ -30,7 +30,6 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	private Graphics2D g;
 
 	// Main State Manager
-
 	private StateManager sm;
 
 	// Constructor
@@ -98,26 +97,20 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	}
 
 	private void update() {
-
 		sm.update();
-
 	}
 
 	private void draw() {
-
 		sm.draw(g);
-
 	}
 
 	private void drawToScreen() {
-
 		Graphics g2 = getGraphics();
 		g2.drawImage(image, 0, 0, WIDTH * SCALE, HIGHT * SCALE, null);
 		g2.dispose();
 	}
 
 	public void KeyTyped(KeyEvent key) {
-
 	}
 
 	public void KeyPressed(KeyEvent key) {

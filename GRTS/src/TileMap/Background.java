@@ -38,8 +38,9 @@ public class Background {
 	}
 
 	public void update() {
-		x += dy;
-		y += dy;
+		System.out.println("hello");
+		x = (x + dx) % MainPanel.WIDTH;
+		y = (y + dy) % MainPanel.HIGHT;
 	}
 
 	public void draw(Graphics2D g) {
