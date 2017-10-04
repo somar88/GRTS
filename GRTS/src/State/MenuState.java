@@ -8,6 +8,15 @@ public class MenuState extends State {
 
 	private Background bg;
 
+	private int currentChoice = 0;
+	private String[] options = { 
+			
+			"Start",
+			"Help",
+			"Quit" 
+			
+			};
+
 	public MenuState(StateManager sm) {
 		this.sm = sm;
 	}
