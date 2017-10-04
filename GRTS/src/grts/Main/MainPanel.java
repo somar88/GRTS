@@ -9,6 +9,9 @@ import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import State.StateManager;
+
+@SuppressWarnings("serial")
 public class MainPanel extends JPanel implements Runnable, KeyListener {
 
 	// dimensions
@@ -25,6 +28,10 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	// image
 	private BufferedImage image;
 	private Graphics2D g;
+
+	// Main State Manager
+
+	private StateManager sm;
 
 	// Constructor
 	public MainPanel() {
@@ -48,11 +55,14 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 		image = new BufferedImage(WIDTH, HIGHT, BufferedImage.TYPE_INT_RGB);
 		g = (Graphics2D) g;
 		running = true;
+
+		sm = new StateManager();
 	}
 
 	public void run() {
 
 		init();
+
 		// Timers
 		long start;
 		long elapsed;
@@ -60,20 +70,36 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 
 		// main Loop
 		while (running) {
+
+			start = System.nanoTime();
+
 			update();
 			draw();
 			drawToScreen();
+
+			elapsed = System.nanoTime() - start;
+
+			wait = targetTime - elapsed / 1000_000;
+
+			try {
+				Thread.sleep(wait);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 
 	}
 
 	private void update() {
-		// TODO Auto-generated method stub
+
+		sm.update();
 
 	}
 
 	private void draw() {
-		// TODO Auto-generated method stub
+
+		sm.draw(g);
 
 	}
 
@@ -84,30 +110,33 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 		g2.dispose();
 	}
 
-	public void KeyTyped(KeyEvent Key) {
+	public void KeyTyped(KeyEvent key) {
+
 	}
 
-	public void KeyPressed(KeyEvent Key) {
+	public void KeyPressed(KeyEvent key) {
+		sm.keyPressed(key.getKeyCode());
 	}
 
-	public void KeyReleased(KeyEvent Key) {
+	public void KeyReleased(KeyEvent key) {
+		sm.keyReleased(key.getKeyCode());
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
