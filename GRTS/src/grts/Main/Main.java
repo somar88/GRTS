@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 public class Main {
 
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		JFrame window = new JFrame("Main Window!");
 		window.setContentPane(new MainPanel());
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

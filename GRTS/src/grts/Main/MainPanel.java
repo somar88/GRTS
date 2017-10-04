@@ -17,7 +17,7 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	// dimensions
 	public static final int WIDTH = 320;
 	public static final int HIGHT = 240;
-	public static final int SCALE = 3;
+	public static final int SCALE = 2;
 
 	// main thread
 	private Thread thread;
@@ -39,10 +39,11 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
 		setFocusable(true);
 		requestFocus();
+		System.out.println("Hi");
 
 	}
 
-	public void addNotifier() {
+	public void addNotify() {
 		super.addNotify();
 		if (thread == null) {
 			thread = new Thread(this, "MainLoop");
@@ -53,7 +54,9 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 
 	public void init() {
 		image = new BufferedImage(WIDTH, HIGHT, BufferedImage.TYPE_INT_RGB);
-		g = (Graphics2D) g;
+
+		g = (Graphics2D) image.getGraphics();
+
 		running = true;
 
 		sm = new StateManager();
@@ -82,6 +85,9 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 			wait = targetTime - elapsed / 1000_000;
 
 			try {
+				if (wait < 0) {
+					wait = 5;
+				}
 				Thread.sleep(wait);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -106,7 +112,7 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	private void drawToScreen() {
 
 		Graphics g2 = getGraphics();
-		g2.drawImage(image, 0, 0, null);
+		g2.drawImage(image, 0, 0, WIDTH * SCALE, HIGHT * SCALE, null);
 		g2.dispose();
 	}
 
