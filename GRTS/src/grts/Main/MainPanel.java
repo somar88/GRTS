@@ -3,10 +3,8 @@ package grts.Main;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
-
 import javax.swing.JPanel;
 
 import State.StateManager;
@@ -18,7 +16,7 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	public static final int WIDTH = 320;
 	public static final int HIGHT = 240;
 	public static final int SCALE = 2;
-
+	public Dimension d = new Dimension(WIDTH * SCALE, HIGHT * SCALE);
 	// main thread
 	private Thread thread;
 	private boolean running;
@@ -35,7 +33,8 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 	// Constructor
 	public MainPanel() {
 		super();
-		setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+		System.out.println(d.getHeight() + ", " + d.getWidth());
+		setPreferredSize(d);
 		setFocusable(true);
 		requestFocus();
 
@@ -109,32 +108,17 @@ public class MainPanel extends JPanel implements Runnable, KeyListener {
 		g2.dispose();
 	}
 
-	public void KeyTyped(KeyEvent key) {
+	@Override
+	public void keyTyped(KeyEvent key) {
 	}
 
-	public void KeyPressed(KeyEvent key) {
+	@Override
+	public void keyPressed(KeyEvent key) {
 		sm.keyPressed(key.getKeyCode());
 	}
 
-	public void KeyReleased(KeyEvent key) {
+	@Override
+	public void keyReleased(KeyEvent key) {
 		sm.keyReleased(key.getKeyCode());
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 }
