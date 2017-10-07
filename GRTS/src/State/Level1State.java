@@ -34,7 +34,7 @@ public class Level1State extends State {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, MainPanel.WIDTH, MainPanel.HIGHT);
 
-		// draw tilemap
+		// draw tile map
 		tileMap.draw(g);
 	}
 
