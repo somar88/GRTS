@@ -20,7 +20,7 @@ public class Level1State extends State {
 
 		tileMap = new TileMap(30);
 		tileMap.loadTiles("/Tilesets/grasstileset.gif");
-		tileMap.loadMap("Maps/level1-1.map");
+		tileMap.loadMap("Maps/level1-1.txt");
 		tileMap.setPosition(0, 0);
 	}
 
