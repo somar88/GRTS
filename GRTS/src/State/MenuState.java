@@ -74,7 +74,8 @@ public class MenuState extends State {
 
 	private void select() {
 		if (currentChoice == 0) {
-			// TODO Start
+			// Start
+			sm.setState(StateManager.LEVEL1STATE);
 		}
 		if (currentChoice == 1) {
 			// TODO help
