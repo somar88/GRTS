@@ -73,16 +73,18 @@ public class TileMap {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
 			numCols = Integer.parseInt(br.readLine());
+			System.out.println(numCols);
 			numRows = Integer.parseInt(br.readLine());
+			System.out.println(numRows);
 			map = new int[numRows][numCols];
 			width = numCols * tileSize;
 			height = numRows * tileSize;
-
-			String delims = "_\\s+";
+			String delims = "\\s+";
 			for (int row = 0; row < numRows; row++) {
 				String line = br.readLine();
 				String[] tokens = line.split(delims);
 				for (int col = 0; col < numCols; col++) {
+					System.out.println(row + " " + col);
 					map[row][col] = Integer.parseInt(tokens[col]);
 				}
 			}
