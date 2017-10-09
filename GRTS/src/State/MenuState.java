@@ -3,9 +3,7 @@ package State;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-
 import com.sun.glass.events.KeyEvent;
-
 import TileMap.Background;
 
 public class MenuState extends State {
@@ -14,11 +12,7 @@ public class MenuState extends State {
 
 	private int currentChoice = 0;
 
-	private String[] options = {
-
-			"Start", "Help", "Quit"
-
-	};
+	private String[] options = { "Start", "Help", "Quit" };
 
 	private Color titleColor;
 	private Font titleFont;
@@ -29,8 +23,8 @@ public class MenuState extends State {
 		this.sm = sm;
 
 		try {
-			bg = new Background("/320x240.png", 1);
-			bg.setVector(-0.1, 0);
+			bg = new Background("/Backgrounds/menubg.gif", 1);
+			bg.setVector(-0.60, 0);
 
 			titleColor = new Color(128, 0, 0);
 			titleFont = new Font("Century Gothic", Font.PLAIN, 28);
@@ -78,7 +72,7 @@ public class MenuState extends State {
 			sm.setState(StateManager.LEVEL1STATE);
 		}
 		if (currentChoice == 1) {
-			// TODO help
+			sm.setState(StateManager.LEVEL2STATE);
 		}
 		if (currentChoice == 2) {
 			System.exit(0);

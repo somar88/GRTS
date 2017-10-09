@@ -9,6 +9,7 @@ public class StateManager {
 
 	public static final int MENUSTATE = 0;
 	public static final int LEVEL1STATE = 1;
+	public static final int LEVEL2STATE = 2;
 
 	public StateManager() {
 		states = new ArrayList<State>();
@@ -16,6 +17,7 @@ public class StateManager {
 		currentState = MENUSTATE;
 		states.add(new MenuState(this));
 		states.add(new Level1State(this));
+		states.add(new Level2State(this));
 	}
 
 	public void setState(int state) {
