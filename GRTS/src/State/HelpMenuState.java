@@ -12,7 +12,7 @@ public class HelpMenuState extends State {
 
 	private int currentChoice = 0;
 
-	private String[] options = { "1st", "2nd", "3rd", "Back to Main Menu" };
+	private String[] options = { "Info", "Graphics", "Back to Main Menu", "Quit" };
 
 	private Color titleColor;
 	private Font titleFont;
