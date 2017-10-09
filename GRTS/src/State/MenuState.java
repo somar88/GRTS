@@ -72,7 +72,8 @@ public class MenuState extends State {
 			sm.setState(StateManager.LEVEL1STATE);
 		}
 		if (currentChoice == 1) {
-			sm.setState(StateManager.LEVEL2STATE);
+			// Help
+			sm.setState(StateManager.HELPMENU);
 		}
 		if (currentChoice == 2) {
 			System.exit(0);

@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import com.sun.glass.events.KeyEvent;
 import TileMap.Background;
 
-public class Level2State extends State {
+public class HelpMenuState extends State {
 
 	private Background bg;
 
@@ -19,7 +19,7 @@ public class Level2State extends State {
 
 	private Font font;
 
-	public Level2State(StateManager sm) {
+	public HelpMenuState(StateManager sm) {
 		this.sm = sm;
 
 		try {
@@ -68,16 +68,17 @@ public class Level2State extends State {
 	private void select() {
 		if (currentChoice == 0) {
 			// Start
-			sm.setState(StateManager.MENUSTATE);
 		}
 		if (currentChoice == 1) {
 			// TODO help
 		}
 		if (currentChoice == 2) {
+			// Go Back
+			sm.setState(StateManager.MENUSTATE);
 		}
 		if (currentChoice == 3) {
-			// Go Back
-			sm.setState(StateManager.LEVEL1STATE);
+			// Quit
+			System.exit(0);
 		}
 	}
 
